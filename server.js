@@ -1,8 +1,14 @@
-const http=require ('http');
+// server.js
+const express = require('express');
+const app = express();
 
-http.createServer((req,res)=>{
-    res.writeHead(200,{'Content-Type':'text/plain'});
-    res.end('hello,Node.js!');
+// Define a simple route
+app.get('/', (req, res) => {
+  res.send('Hello, Express!');
+});
 
-}).listen(5000);
-console.log('server running at http://localhost:5000');
+// Start the server
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`);
+});
